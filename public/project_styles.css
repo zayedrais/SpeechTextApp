@@ -1,0 +1,118 @@
+body {
+    background-color: #dfdfe4;
+}
+
+.error {
+    font-size: 60px;
+}
+
+.error-msg {
+    font-size: 50px;
+    color: red;
+}
+
+span {
+    font-size: 25px;
+
+}
+
+.red {
+    font-size: 25px;
+    color: red;
+    margin-left: 20px
+}
+
+.green {
+    font-size: 25px;
+    color: green;
+    margin-left: 20px
+}
+
+.black {
+    font-size: 40px;
+    color: black;
+}
+
+h3 {
+    font-size: 40px;
+    color: #144c84;
+}
+
+/* 
+input{
+font-size: 30px;
+color: green;
+} */
+
+.input {
+    font-size: 20px;
+    color: #121312;
+
+
+}
+
+.input2 {
+    font-size: 20px;
+    /* color: #30349e; */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+.btn {
+    font-size: 30px;
+    /* color: green; */
+    margin-top: 30px;
+    margin-right: 600px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lable1 {
+    font-size: 25px;
+    color: black;
+    margin-top: 20px;
+    margin-right: 30px;
+
+}
+
+.lable2 {
+    font-size: 25px;
+    color: black;
+    margin-top: 20px;
+    margin-right: 30px;
+
+}
+
+.res1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.res2 {
+    margin-left: auto;
+    margin-right: 350px;
+}
+
+.link {
+    font-size: 30px;
+    margin-right: 80px
+}
+
+.limit {
+    font-size: 12px;
+    color: red;
+    margin-left: 30px;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}

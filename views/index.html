@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+     <script src="js/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="project_styles.css">
+</head>
+<body>
+<form id="uploadForm" enctype="multipart/form-data"  method="post" action="/">
+    <center>
+    </br>
+        <h3>Audio Transcript System</h3>
+    </br>
+    <img src="/audioToText.png" style="width:30%">
+    <p id="completedId" class="hide"> <%=data.status%></p>
+    <label class="lable1" for="langselect">Language</label>
+    <select class="input2" id="langselect" name="langsel" >   
+                            <option value="en-IN" selected="selected"> English (India)</option>
+                            <option value="hi-IN" >Hindi (India)</option>
+                            <option value="ta-IN" >Tamil (India)</option>
+                            <option value="te-IN" >Telugu (India)</option>
+                            <option value="gu-IN" >Gujarati (Indian)</option>
+                            <option value="mr-IN" >Marathi (India)</option>
+                            <option value="ar-SA" >Arabic (Saudi Arabia)</option>  
+    </select>
+    <br>
+    <label class="lable1" for="audID">Audio file</label>
+    <input class="input" id ="audID" type="file" name="userFile" accept="audio/wav" style="margin-right: -110px;"/>
+     </br>
+    <label class="limit" >**Only accept wav format audio</label> 
+     </br>
+    <input id="startRecognizeOnceAsyncButton" class="btn btn-success btn-squared" style="margin: auto; margin-right: -15px; font-size: large;" type="submit" value="Audio Transcript" onclick="sub()">
+     </center>
+   
+</form>
+<center>
+</br>
+<div id="processingId" class="" style="width: 2rem; height: 2rem;" role="status">
+</div>
+<div>
+<p id="txtAreaContentId" class="hide"> <%=data.contents%> </p>
+<textarea id ="txtAreaId" wrap="hard" readonly="test" style="height: 180px; width: 37%; resize: none; margin-left: -60px; margin-bottom: 25px;
+    margin-top: auto;">
+
+</textarea >
+</div>
+<div id ="docxId" class="hide" style="margin-top: auto;">
+<a href="./uploads/output.docx" class="btn btn-primary btn-squared" style="margin: auto; margin-left: -85px; font-size: large;" target="_blank">Download the transcripted file</a>
+</div>
+
+</center>
+</center>
+</body>
+<script>
+  var audioFile;
+    var uploadAudioField = document.getElementById("audID");
+     uploadAudioField.addEventListener("change", function () {
+                audioFile = uploadAudioField.files[0];
+            });
+    var allowedImgExtensions = /.(wav)$/i;
+    uploadAudioField.onchange = function () {
+        var filePath = uploadAudioField.value;
+        if (!allowedImgExtensions.exec(filePath)) {
+            alert("Only allow wav format audio")
+            this.value = "";
+        }
+    };
+    function sub(){
+        document.getElementById('processingId').className="spinner-border"; 
+    }
+   var status = document.getElementById('completedId').innerHTML;
+   console.log("status:",status);
+    if (status.trim() === 'completed')
+    {
+        document.getElementById('processingId').className=""; 
+        console.log("inside if");
+        var cont =document.getElementById("txtAreaContentId").innerHTML;
+        document.getElementById("txtAreaId").innerHTML =cont;
+        document.getElementById('docxId').className="show"; 
+    }
+    else 
+    {
+        //document.getElementById('processingId').className="spinner-border"; 
+    }
+</script>
+</html>
